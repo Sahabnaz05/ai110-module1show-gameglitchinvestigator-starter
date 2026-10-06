@@ -5,18 +5,20 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+  The first time I ran the game, it looked like a normal number guessing game. It asked me to guess a number between 1 and 100 and showed how many attempts I had left.
 - List at least two concrete bugs you noticed at the start  
-  (for example: "the hints were backwards").
-
+  One bug I noticed was that the hints were backwards. When the secret number was 32 and I guessed 50, the game told me to “Go HIGHER!” instead of telling me to go lower. I also noticed that the New Game button did not fully reset the previous game. Another bug was that the game accepted a decimal like 35.9 and treated it as 35 instead of rejecting it.
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+
+
+| Secret = 32, Guess = 50 | The game should tell me to go lower | The game said "Go HIGHER!" | No console error |
+| Click New Game after winning | The game should reset the previous game information | Some of the previous game state did not reset | No console error |
+| Secret = 35, Guess = 35.9 | The game should reject the decimal guess | The game treated 35.9 as 35 and said "Correct!" | No console error |
 
 ---
 
