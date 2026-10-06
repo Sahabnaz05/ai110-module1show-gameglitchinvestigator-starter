@@ -19,6 +19,7 @@ def parse_guess(raw: str):
         return False, None, "Enter a guess."
 
     try:
+        # FIXME: Decimal guesses are incorrectly converted to integers
         if "." in raw:
             value = int(float(raw))
         else:
@@ -28,13 +29,13 @@ def parse_guess(raw: str):
 
     return True, value, None
 
-
 def check_guess(guess, secret):
     if guess == secret:
         return "Win", "🎉 Correct!"
 
     try:
         if guess > secret:
+        # FIXME: High/low hint logic is reversed here
             return "Too High", "📈 Go HIGHER!"
         else:
             return "Too Low", "📉 Go LOWER!"
@@ -130,7 +131,7 @@ with col2:
     new_game = st.button("New Game 🔁")
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
-
+# FIXME: New game does not reset all game state
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(1, 100)
