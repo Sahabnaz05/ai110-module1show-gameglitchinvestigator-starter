@@ -25,8 +25,11 @@ Document at least 3 bugs you found. Add rows as needed.
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+  I used Claude during this project. I used Claude to look over parts of my code and help me understand possible changes I could make.
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+  Claude suggested that I keep the secret number as an integer instead of converting it into a string. Before I fixed this, the game gave me a TypeError because it was trying to compare my integer guess to a string. I made the change and tested the game again with different guesses. The error did not happen again, and the game correctly told me whether to go higher or lower.
 - Give one example of an AI suggestion you did not accept as written (including what the AI suggested, why you rejected or changed it, and how you verified your version). It does not have to be a suggestion that was wrong: over-engineered, out of scope, harder to read, or a poor fit for this codebase all count.
+  One AI suggestion I had to change was how check_guess() was used after I moved the game logic into logic_utils.py. The suggested code expected check_guess() to return both an outcome and a message, but my function returned only the outcome, which caused a ValueError. I changed the code so the function returned the outcome and the app created the hint message separately. I verified my change by testing the game manually and running python -m pytest, where all 3 tests passed.
 
 ---
 
